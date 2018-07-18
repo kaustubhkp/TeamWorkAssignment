@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TeamWork</string>
+
+    <string name="project_name">Project Name: %1$s</string>
+    <string name="project_start_date"><![CDATA[<b>Start Date:</b>]]> %1$s</string>
+
+    <string name="project_end_date"><![CDATA[<b>End Date:</b>]]> %1$s</string>
+    <string name="project_status"><![CDATA[<b>Status:</b>]]> %1$s</string>
+    <string name="project_description"><![CDATA[<b>Description:</b>]]> %1$s</string>
+
+    <string name="connection_error">Oops! It seems there is a problem with your Internet connection, Please tap this message to try again</string>
+    <string name="title_activity_project_detail">Project Detail</string>
+
+    <string name="project_list_empty">Project list is empty</string>
+    <string name="something_went_wrong">Something went wrong, Please tap this message to try again</string>
+
+    <string name="img_content_description">Image</string>
+    <string name="refresh">Refresh</string>
+</resources>

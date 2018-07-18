@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+
+def appLibs = rootProject.ext.appLibraries
+def testLibs = rootProject.ext.testingLibraries
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.teamwork.assignment"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            resValue 'string', "api_key", TeamWorkApiKey
+        }
+        release {
+            minifyEnabled false
+            resValue 'string', "api_key", TeamWorkApiKey
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:${appLibs.ANDROID_SUPPORT_VERSION}"
+    implementation "com.android.support:cardview-v7:${appLibs.ANDROID_SUPPORT_VERSION}"
+    implementation "com.android.support:recyclerview-v7:${appLibs.ANDROID_SUPPORT_VERSION}"
+
+    //test
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation('com.android.support.test.espresso:espresso-contrib:2.0') {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+    }
+    testImplementation "org.mockito:mockito-all:${testLibs.MOCKITO_VERSION}"
+    testImplementation("org.powermock:powermock-api-mockito:${testLibs.POWER_MOCKITO_VERSION}") {
+        exclude module: 'hamcrest-core'
+        exclude module: 'objenesis'
+    }
+    testImplementation("org.powermock:powermock-module-junit4:${testLibs.POWER_MOCKITO_VERSION}") {
+        exclude module: 'hamcrest-core'
+        exclude module: 'objenesis'
+    }
+
+    //butter knife
+    implementation "com.jakewharton:butterknife:${appLibs.BUTTERKNIFE_VERSION}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${appLibs.BUTTERKNIFE_VERSION}"
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:${appLibs.PICASSO}"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${appLibs.RETROFIT}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${appLibs.RETROFIT}"
+    implementation "com.squareup.retrofit2:converter-gson:${appLibs.RETROFIT}"
+
+    //RxJava
+    implementation "io.reactivex.rxjava2:rxjava:${appLibs.RX_JAVA}"
+    implementation "io.reactivex.rxjava2:rxandroid:${appLibs.RX_ANDROID}"
+    implementation "com.jakewharton.rxbinding2:rxbinding:${appLibs.RX_BINDING}"
+
+    //Dagger
+    implementation "com.google.dagger:dagger:${appLibs.DAGGER_VERSION}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${appLibs.DAGGER_VERSION}"
+
+    //Jodatime android
+    implementation "net.danlew:android.joda:${appLibs.JODA_TIME}"
+
+    //parcel
+    implementation "org.parceler:parceler-api:${appLibs.PARCELER}"
+    annotationProcessor "org.parceler:parceler:${appLibs.PARCELER}"
+}
