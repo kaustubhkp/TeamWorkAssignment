@@ -51,8 +51,8 @@ Lint ran on the code and removed most of the error's and warnings <br>
 
 # Tests:
 Code is tested using instrumentation and unit testing.
-1. Instrumentation tests - Project list and project detail list is tested using espresso framework provided by google. It test clicking of recycler view as well.
-2. Uint test - Utils class and presenter is tested using Junit. In presenter, API calling is tested using powerMockito.
+1. Instrumentation tests (tested on Lenovo K33a42 Android 7.0)- Project list and project detail list is tested using espresso framework provided by google. It test clicking of recycler view as well.
+2. Unit test - Utils class and presenter is tested using Junit. In presenter, API calling is tested using powerMockito.
 
 
 # General Improvements:
